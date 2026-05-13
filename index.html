@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunil Malla, CA — Chartered Accountant | sma.com.np</title>
+<meta name="description" content="Sunil Malla, Chartered Accountant (CA) — Expert in Audit & Assurance, Tax Consultancy, and Business Advisory in Nepal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f3d;
+    --navy-light: #1a3260;
+    --gold: #b8922a;
+    --gold-light: #d4aa4e;
+    --cream: #f8f5f0;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6478;
+    --border: rgba(15,31,61,0.1);
+    --section-bg: #f5f3ef;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5vw;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(15,31,61,0.08); }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-cta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy) !important;
+    border: 1px solid var(--navy);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--navy) !important; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 5vw 4rem;
+    gap: 4rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: var(--navy);
+    z-index: 0;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 .ca-badge {
+    font-size: 0.4em;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    vertical-align: super;
+    margin-left: 0.25em;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    max-width: 380px;
+    font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover { background: var(--navy-light); }
+
+  .btn-outline {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: transparent;
+    border: 1px solid var(--navy);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+  /* HERO VISUAL SIDE */
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  }
+
+  .avatar-ring {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 1.25rem;
+    border: 3px solid var(--gold);
+  }
+
+  .hero-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-card .title {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .stat { text-align: center; }
+  .stat + .stat { border-left: 1px solid var(--border); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 5vw; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    font-weight: 300;
+  }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3.5rem;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: var(--cream);
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .highlight-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .highlight-item h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .highlight-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services { background: var(--section-bg); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(15,31,61,0.1); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: rgba(184,146,42,0.2);
+    line-height: 1;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .service-list li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .service-list li::before {
+    content: '';
+    display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* EXPERTISE */
+  .expertise { background: var(--navy); }
+  .expertise .section-title { color: var(--white); }
+  .expertise .section-desc { color: rgba(255,255,255,0.55); }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 3.5rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .expertise-item {
+    padding: 2rem 1.5rem;
+    background: var(--navy);
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .expertise-item:hover { background: var(--navy-light); }
+
+  .expertise-item .icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
+
+  .expertise-item h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .expertise-item p { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .testimonial-card {
+    padding: 2rem;
+    background: var(--cream);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    line-height: 0.5;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .testimonial-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    flex-shrink: 0;
+  }
+
+  .author-name { font-size: 0.85rem; font-weight: 500; color: var(--navy); }
+  .author-title { font-size: 0.75rem; color: var(--muted); }
+
+  /* CONTACT */
+  .contact { background: var(--cream); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    border-radius: 2px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+  .contact-item p, .contact-item a { font-size: 0.95rem; color: var(--navy); text-decoration: none; font-weight: 400; }
+  .contact-item a:hover { color: var(--gold); }
+
+  /* CONTACT FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .form-group label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--navy);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero::before { display: none; }
+    .hero { background: var(--navy); }
+    .hero h1 { color: var(--white); }
+    .hero-tagline { color: rgba(255,255,255,0.6); }
+    .btn-outline { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+    .hero-visual { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    nav .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Sunil Malla & Associates<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text fade-up">
+    <span class="hero-eyebrow">Chartered Accountants · Nepal</span>
+    <h1>SUNIL MALLA & ASSOCIATES <span class="ca-badge">CA</span></h1>
+    <p class="hero-tagline">Trusted financial expertise for businesses and individuals across Nepal - built on integrity, precision, and deep local knowledge.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact" class="btn-outline">Book Consultation</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="avatar-ring">SMA</div>
+      <h2>Sunil Malla</h2>
+      <div class="title">Chartered Accountant (CA)</div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Clients</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">ICAN</span>
+          <span class="stat-label">Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <span class="section-label">About Me</span>
+  <h2 class="section-title">A Chartered Accountant firm <br>You Can Rely On</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>We Sunil Malla & Associates, a Chartered Accountant firm having over a decade of experience providing financial and advisory services to businesses, SMEs, and individuals across Nepal.</p>
+      <p>Our practice is built on a commitment to accuracy, confidentiality, and practical guidance. Whether you are a start-up navigating compliance for the first time or an established enterprise seeking strategic financial counsel, We bring the same rigour and dedication to every engagement.</p>
+      <p>We hold membership with the Institute of Chartered Accountants of Nepal (ICAN) and stay current with Nepal's evolving tax laws, regulatory frameworks, and international accounting standards.</p>
+    </div>
+    <div class="about-highlights fade-up">
+      <div class="highlight-item">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <h4>Academic & Professional Credentials</h4>
+          <p>Member, Institute of Chartered Accountants of Nepal (ICAN)</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">📋</div>
+        <div>
+          <h4>Regulatory Expertise</h4>
+          <p>Deep knowledge of Nepal's Income Tax Act, VAT Act, Company Act, and  Nepal Financial Reporting Standards.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🤝</div>
+        <div>
+          <h4>Client-Centred Approach</h4>
+          <p>Personalised attention and transparent communication from initial consultation to final deliverable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <span class="section-label">What I Offer</span>
+  <h2 class="section-title">Professional Services</h2>
+  <p class="section-desc">Comprehensive financial and advisory services tailored to your unique business needs.</p>
+
+  <div class="services-grid">
+    <!-- Audit -->
+    <div class="service-card fade-up">
+      <span class="service-num">01</span>
+      <h3>Audit & Assurance</h3>
+      <p>Independent, objective audit services that provide stakeholders with confidence in the accuracy and reliability of financial statements.</p>
+      <ul class="service-list">
+        <li>Statutory & Regulatory Audits</li>
+        <li>Internal Audit & Controls Review</li>
+        <li>Compliance Audits</li>
+        <li>Special Purpose Audits</li>
+        <li>Financial Statement Review</li>
+      </ul>
+    </div>
+
+    <!-- Tax -->
+    <div class="service-card fade-up">
+      <span class="service-num">02</span>
+      <h3>Tax Consultancy</h3>
+      <p>Strategic tax planning and compliance services to minimise liability while ensuring full conformity with Nepal's tax laws and regulations.</p>
+      <ul class="service-list">
+        <li>Income Tax Filing & Compliance</li>
+        <li>VAT Registration & Returns</li>
+        <li>Tax Planning & Optimisation</li>
+        <li>TDS Compliance</li>
+        <li>IRD Liaison & Representation</li>
+      </ul>
+    </div>
+
+    <!-- Advisory -->
+    <div class="service-card fade-up">
+      <span class="service-num">03</span>
+      <h3>Business Advisory</h3>
+      <p>Forward-looking advisory support to help businesses grow sustainably, manage risk, and make well-informed strategic decisions.</p>
+      <ul class="service-list">
+        <li>Business Registration & Setup</li>
+        <li>Financial Modelling & Forecasting</li>
+        <li>Management Accounting</li>
+        <li>Company Secretarial Services</li>
+        <li>Due Diligence & Valuation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <span class="section-label" style="color: var(--gold-light);">Areas of Expertise</span>
+  <h2 class="section-title">Industry & Technical Knowledge</h2>
+  <p class="section-desc">Specialised experience across key sectors of the Nepali economy.</p>
+
+  <div class="expertise-grid fade-up">
+    <div class="expertise-item">
+      <span class="icon">🏗️</span>
+      <h4>Construction & Real Estate</h4>
+      <p>Project accounting, contractor compliance</p>
+    </div>
+    <div class="expertise-item">
+      <span class="icon">🛍️</span>
+      <h4>Trading & Retail</h4>
+      <p>Inventory management, margin analysis</p>
+    </div>
+    <div class="expertise-item">
+      <span class="icon">🏨</span>
+      <h4>Hospitality & Tourism</h4>
+      <p>Revenue accounting, VAT compliance</p>
+    </div>
+    <div class="expertise-item">
+      <span class="icon">🌱</span>
+      <h4>NGOs & Non-Profits</h4>
+      <p>Fund accounting, donor reporting</p>
+    </div>
+    <div class="expertise-item">
+      <span class="icon">🏭</span>
+      <h4>Manufacturing</h4>
+      <p>Cost accounting, excise compliance</p>
+    </div>
+    <div class="expertise-item">
+      <span class="icon">💻</span>
+      <h4>IT & Startups</h4>
+      <p>Financial structuring, growth planning</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <span class="section-label">Client Feedback</span>
+  <h2 class="section-title">What Clients Say</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <span class="quote-mark">"</span>
+      <p>Sunil Malla & Associates has been handling our company's audit and tax filings for five years. His attention to detail and proactive communication have saved us significant time and cost.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div>
+          <div class="author-name">Omkar Ghimire</div>
+          <div class="author-title">Director, Alright Wellness Group Pvt. Ltd. </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <span class="quote-mark">"</span>
+      <p>When we set up our NGO, The firm guided us through every compliance requirement with patience and clarity. He is a trusted advisor we would recommend without hesitation.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">PS</div>
+        <div>
+          <div class="author-name">Priya Shrestha</div>
+          <div class="author-title">Executive Director, Green Nepal Foundation</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <span class="quote-mark">"</span>
+      <p>Professional, knowledgeable, and always available when needed. Our tax planning has never been better since partnering with Sunil Malla & Associates.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">BT</div>
+        <div>
+          <div class="author-name">Binod Thapa</div>
+          <div class="author-title">CEO, Mountain Tech Pvt. Ltd.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <span class="section-label">Get in Touch</span>
+  <h2 class="section-title">Start a Conversation</h2>
+  <p class="section-desc">Book a consultation or send an enquiry. I respond to all messages within one business day.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Office</h4>
+          <p>Tarkeshwor-02, Kathmandu, Bagmati Province, Nepal</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:info@sma.com.np">info@sma.com.np</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <h4>Website</h4>
+          <a href="https://sma.com.np">sma.com.np</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:+9779849744517">+977-9849744517</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Office Hours</h4>
+          <p>Mon – Fri &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
+        </div>
+      </div>
+
+    <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service of Interest</label>
+        <select id="service">
+          <option value="">Select a service…</option>
+          <option>Audit & Assurance</option>
+          <option>Tax Consultancy</option>
+          <option>Business Advisory</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Briefly describe how I can assist you…" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: fit-content; cursor: pointer; font-family: 'DM Sans', sans-serif; border: none;">Send Enquiry →</button>
+      <div id="form-success" style="display:none; font-size:0.9rem; color: #2a6b3f; background: #eaf5ee; padding: 0.75rem 1rem; border-radius: 2px; border-left: 3px solid #2a6b3f;">
+        ✓ Thank you! Your message has been received. I will respond within one business day.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SMA<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Sunil Malla & Associates · sma.com.np · All rights reserved</p>
+</footer>
+
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Fade-up observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => {
+      document.getElementById('form-success').style.display = 'none';
+    }, 6000);
+  }
+</script>
+</body>
+</html>
