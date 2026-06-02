@@ -633,6 +633,135 @@
   }
   .fade-up.visible { opacity: 1; transform: none; }
 
+  /* PUBLICATIONS */
+  .publications { background: var(--white); }
+
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .pub-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pub-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s;
+  }
+  .pub-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(15,31,61,0.09); }
+  .pub-card:hover::after { transform: scaleY(1); }
+
+  .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+  .pub-tag.pdf  { background: rgba(184,146,42,0.12); color: var(--gold); }
+  .pub-tag.article { background: rgba(15,31,61,0.08); color: var(--navy); }
+  .pub-tag.alert  { background: rgba(200,50,50,0.09); color: #b03030; }
+
+  .pub-date {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .pub-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .pub-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .pub-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    margin-top: 0.25rem;
+    width: fit-content;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .pub-action:hover { color: var(--gold); }
+  .pub-action svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+  /* inline article expand */
+  .pub-body {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.8;
+    display: none;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  .pub-body.open { display: block; }
+  .pub-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: color 0.2s;
+  }
+  .pub-toggle:hover { color: var(--gold); }
+  .pub-toggle .arrow { transition: transform 0.25s; display: inline-block; }
+  .pub-toggle.open .arrow { transform: rotate(180deg); }
+
   /* MOBILE */
   @media (max-width: 768px) {
     .hero { grid-template-columns: 1fr; }
@@ -687,7 +816,7 @@
     width: 100%;
     border-radius: 2px;
     box-shadow: 0 24px 80px rgba(0,0,0,0.35);
-    overflow-y: auto;
+    overflow: hidden;
     animation: dlSlideUp 0.35s cubic-bezier(.22,.68,0,1.2);
   }
 
@@ -798,7 +927,14 @@
       </p>
       <br/>
       <p>
-        The contents of this website are the intellectual property of <strong>Sunil Malla &amp; Associates</strong>.
+        The content of this website is for informational purposes only and should not be
+        interpreted as soliciting or advertisement. No material/information provided on this
+        website should be construed as professional advice. We have taken all necessary steps to
+        ensure that the information on the website has been obtained from reliable sources.
+        However, this website is not intended to give legal, tax, accounting or any other
+        professional guidance. We recommend appropriate advice be taken before initiating action
+        on specific issues. The contents of this website are the intellectual property of
+        <strong>Sunil Malla &amp; Associates</strong>.
       </p>
     </div>
     <div class="dl-modal-footer">
@@ -820,6 +956,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#publications">Publications</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </nav>
@@ -1028,6 +1165,115 @@
   </div>
 </section>
 
+<!-- PUBLICATIONS -->
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  HOW TO ADD A NEW PUBLICATION                                ║
+  ║                                                              ║
+  ║  Copy ONE of the two templates below and paste it            ║
+  ║  INSIDE the <div class="pub-grid"> … </div> block.           ║
+  ║  Newest articles should go FIRST (at the top of the grid).   ║
+  ║                                                              ║
+  ║  TEMPLATE A — PDF download                                   ║
+  ║  Change: pub-date, pub-tag text/class, h3 title,             ║
+  ║          excerpt <p>, and href on the <a> link.              ║
+  ║                                                              ║
+  ║  TEMPLATE B — Inline article (no PDF needed)                 ║
+  ║  Change: pub-date, pub-tag, h3 title, excerpt <p>,           ║
+  ║          and the full article text inside .pub-body.         ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<section class="publications" id="publications">
+  <span class="section-label">Insights &amp; Resources</span>
+  <h2 class="section-title">Publications &amp; Articles</h2>
+  <p class="section-desc">Practical guidance on tax, audit, and business advisory matters relevant to Nepal's regulatory environment.</p>
+
+  <div class="pub-grid">
+
+    <!-- ═══════════ TEMPLATE A — PDF DOWNLOAD (copy & paste, edit fields) ═══════════
+    <div class="pub-card fade-up">
+      <div class="pub-meta">
+        <span class="pub-tag pdf">PDF</span>
+        <span class="pub-date">Month YYYY</span>
+      </div>
+      <h3>Your Article Title Goes Here</h3>
+      <p>A short one- or two-sentence description of what this article covers so readers know whether it is relevant to them.</p>
+      <a class="pub-action" href="pdfs/your-file-name.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
+        Download PDF
+      </a>
+    </div>
+    ═══════════════════════════════════════════════════════════════════════════════ -->
+
+    <!-- ═══════════ TEMPLATE B — INLINE ARTICLE (copy & paste, edit fields) ════════
+    <div class="pub-card fade-up">
+      <div class="pub-meta">
+        <span class="pub-tag article">Article</span>
+        <span class="pub-date">Month YYYY</span>
+      </div>
+      <h3>Your Article Title Goes Here</h3>
+      <p>A short one- or two-sentence excerpt shown before the reader expands the full text.</p>
+      <button class="pub-toggle" onclick="togglePub(this)">Read Article <span class="arrow">↓</span></button>
+      <div class="pub-body">
+        <p>Full article text goes here. You can write as many paragraphs as needed.</p>
+        <p>Second paragraph, and so on…</p>
+      </div>
+    </div>
+    ═══════════════════════════════════════════════════════════════════════════════ -->
+
+    <!-- ─── PUBLICATION 1 (PDF example) ─────────────────────────── -->
+    <div class="pub-card fade-up">
+      <div class="pub-meta">
+        <span class="pub-tag pdf">PDF</span>
+        <span class="pub-date">May 2026</span>
+      </div>
+      <h3>Understanding VAT Compliance for SMEs in Nepal</h3>
+      <p>A practical guide covering VAT registration thresholds, return filing timelines, and common compliance pitfalls faced by small and medium enterprises under Nepal's Value Added Tax Act.</p>
+      <a class="pub-action" href="pdfs/vat-compliance-smes-2026.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- ─── PUBLICATION 2 (Inline article example) ───────────────── -->
+    <div class="pub-card fade-up">
+      <div class="pub-meta">
+        <span class="pub-tag article">Article</span>
+        <span class="pub-date">April 2026</span>
+      </div>
+      <h3>Key Changes in Nepal's Income Tax Act — FY 2081/82</h3>
+      <p>An overview of the notable amendments introduced in the fiscal year 2081/82, including revised slab rates, deduction limits, and employer reporting obligations.</p>
+      <button class="pub-toggle" onclick="togglePub(this)">Read Article <span class="arrow">↓</span></button>
+      <div class="pub-body">
+        <p>The Finance Act 2081 introduced several amendments to the Income Tax Act 2058 that practitioners and businesses operating in Nepal should be aware of for the current assessment year.</p>
+        <p><strong>Revised Tax Slabs for Individuals:</strong> The basic exemption limit for natural persons has been adjusted, with the first taxable slab now attracting a 1% rate as a social security tax contribution before the standard progressive rates apply.</p>
+        <p><strong>Withholding Tax on Service Payments:</strong> TDS obligations on payments to resident service providers have been clarified, particularly for professional and technical service fees, requiring compliance updates to payroll and accounts payable processes.</p>
+        <p><strong>Advance Tax Installments:</strong> Entities with an estimated annual tax liability exceeding NPR 7,500 must continue to pay advance tax in four installments — Poush, Chaitra, Ashadh, and Ashwin — with interest accruing on shortfalls.</p>
+        <p>Businesses are advised to review their tax provisioning and update agreements with vendors to reflect current withholding requirements. Feel free to contact the firm for entity-specific guidance.</p>
+      </div>
+    </div>
+
+    <!-- ─── PUBLICATION 3 (Tax alert example) ───────────────────── -->
+    <div class="pub-card fade-up">
+      <div class="pub-meta">
+        <span class="pub-tag alert">Tax Alert</span>
+        <span class="pub-date">March 2026</span>
+      </div>
+      <h3>IRD Circular: Updated TDS Rates Effective Chaitra 2082</h3>
+      <p>The Inland Revenue Department issued a circular revising withholding tax rates on certain categories of payments. Key changes affect contractors, rent payments, and foreign service imports.</p>
+      <button class="pub-toggle" onclick="togglePub(this)">Read Article <span class="arrow">↓</span></button>
+      <div class="pub-body">
+        <p>The IRD circular dated Falgun 2082 brings the following updates effective from 1 Chaitra 2082:</p>
+        <p><strong>Rent Payments:</strong> TDS on rent paid to resident individuals and entities remains at 10%, but the threshold below which deduction is not required has been revised. Entities must now deduct TDS on annual rent exceeding NPR 4,000 per month (previously NPR 2,500).</p>
+        <p><strong>Contractor Payments:</strong> The 1.5% TDS rate for registered contractors continues to apply, however registration verification via the IRD portal is now mandatory before payment to claim the concessional rate.</p>
+        <p><strong>Foreign Service Payments:</strong> Payments for technical services sourced from abroad attract a 15% withholding unless a Double Taxation Avoidance Agreement (DTAA) rate applies. Documentation requirements have been strengthened.</p>
+        <p>Companies should update their vendor master data and ensure ERP systems reflect revised rates. Contact the firm if you need assistance with TDS reconciliation or IRD correspondence.</p>
+      </div>
+    </div>
+
+  </div><!-- /pub-grid -->
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <span class="section-label">Get in Touch</span>
@@ -1049,7 +1295,7 @@
         <div class="contact-icon">✉️</div>
         <div>
           <h4>Email</h4>
-          <a href="mailto:info@sma.com.np">info@sma.com.np</a>
+          <a href="mailto:casunilmalla@outlook.com">casunilmalla@outlook.com</a>
         </div>
       </div>
 
@@ -1117,6 +1363,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#publications">Publications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <p class="footer-copy">© 2026 Sunil Malla & Associates · sma.com.np · All rights reserved</p>
@@ -1140,6 +1387,13 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Publications toggle
+  function togglePub(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+  }
 
   // Form submit
   function handleSubmit(e) {
